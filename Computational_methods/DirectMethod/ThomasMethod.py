@@ -69,8 +69,8 @@ for i in range(1, n):
     beta[i] = (d[i] - a[i] * beta[i - 1]) / alpha[i]
 
 #STEP 3: we do backward substitution for unknowns (U) 
-U[n - 1] = beta[n - 1] # Starting with the last variable
-for i in range(n - 2, -1, -1): # Counting backwards to 0
+U[n - 1] = beta[n - 1] # starting with the last variable
+for i in range(n - 2, -1, -1): # counting backwards to 0
     U[i] = beta[i] - (c[i] * U[i + 1]) / alpha[i]
 
 end = time.time()
