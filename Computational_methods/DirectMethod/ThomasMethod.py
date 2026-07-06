@@ -58,17 +58,17 @@ alpha = np.zeros(n)
 beta = np.zeros(n)
 U = np.zeros(n) 
 
-# STEP 1: forward Elimination for alpha we do
+# in step 1: forward elimination for alpha we do
 alpha[0] = b[0]
 for i in range(1, n):
     alpha[i] = b[i] - (a[i] * c[i - 1]) / alpha[i - 1]
 
-# STEP 2: forward elimination for beta we do 
+# in step 2: forward elimination for beta we do 
 beta[0] = d[0] / alpha[0]
 for i in range(1, n):
     beta[i] = (d[i] - a[i] * beta[i - 1]) / alpha[i]
 
-#STEP 3: we do backward substitution for unknowns (U) 
+#in step 3: we do backward substitution for unknowns (U) 
 U[n - 1] = beta[n - 1] # starting with the last variable
 for i in range(n - 2, -1, -1): # counting backwards to 0
     U[i] = beta[i] - (c[i] * U[i + 1]) / alpha[i]
